@@ -1,44 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 
-class Menu extends Component {
+function RenderMenuItem({ dish, onClick }) {
+    return (
+        <Card onClick={() =>onClick(dish.id)}>
+            <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardImgOverlay body className="ml-5">
+                <CardTitle>{dish.name}</CardTitle>
+            </CardImgOverlay>
+        </Card>
+    )
+}
+const Menu = (props) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-        // console.log("Menu constructor has been called")
-    };
-    // componentDidMount(){
-    //     console.log("Menu component did mount has been invoked")
-    // }
-
-    render() {
-        // console.log("Menu component render has been called")
-        const menu = this.props.dishes.map((dish) => {
-            return (
-                <div  key={dish.id} className="col-12 col-md-5 m-1">
-                    {/* construct view for each element in dishes list */}
-                    <Card onClick={()=>this.props.onClick(dish.id)}>
-                        <CardImg width="100%" src={dish.image} alt={dish.name} />
-                        <CardImgOverlay body className="ml-5">
-                            <CardTitle>{dish.name}</CardTitle>
-                        </CardImgOverlay>
-                    </Card>
-                </div>
-            );
-        });
-   
-
-
+    const menu = props.dishes.map((dish) => {
         return (
-            <div className="container">
-                <div className="row">
-                    {menu} 
-                </div>
+            <div key={dish.id} className="col-12 col-md-5 m-1">
+                {/* construct view for each element in dishes list */}
+                <RenderMenuItem dish={dish} onClick={props.onClick}/>
             </div>
-        )
-    }
+        );
+    });
+    return (
+        <div className="container">
+            <div className="row">
+                {menu}
+            </div>
+        </div>
+    )
+
 }
 
 
