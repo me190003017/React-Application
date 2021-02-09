@@ -18,8 +18,9 @@
 .jumbotron {
     padding:70px 30px 70px 30px;
     margin:0px auto;
-    background: #9575CD ;
+    background: #414b22;
     color:floralwhite;
+    border-radius: 0;
 }
 
 address{
@@ -29,9 +30,14 @@ address{
 }
 
 .navbar-dark {
-    background-color: #512DA8;
+    background-color: #a82d6b;
 }
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
     margin: 5px;
 }
+.fa-home:before,.fa-info:before,.fa-address-card:before,.fa-list:before {
+   
+    margin-right: 4px;
+}
+
