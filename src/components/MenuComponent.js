@@ -7,14 +7,14 @@ class Menu extends Component {
         super(props);
         this.state = {
         }
-        // console.log("constructor has been called")
+        // console.log("Menu constructor has been called")
     };
-    componentDidMount(){
-        // console.log("component did mount has been invoked")
-    }
+    // componentDidMount(){
+    //     console.log("Menu component did mount has been invoked")
+    // }
 
     render() {
-        // console.log("render has been called")
+        // console.log("Menu component render has been called")
         const menu = this.props.dishes.map((dish) => {
             return (
                 <div  key={dish.id} className="col-12 col-md-5 m-1">
