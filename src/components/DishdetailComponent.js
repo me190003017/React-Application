@@ -32,6 +32,7 @@ class CommentForm extends Component {
 
     handleSubmit = (event) => {
         this.toggleModal();
+        this.props.addComment(this.props.dishId,this.rating.value,this.username.value,this.comment.value);
 
         alert("Your Name : " + this.username.value + " Rating : " + this.rating.value + " Comment : " + this.comment.value);
         console.log("Your Name : " + this.username.value + " Rating : " + this.rating.value + " Comment : " + this.comment.value)
@@ -53,10 +54,10 @@ class CommentForm extends Component {
         const errors={
             username:''
         };
-        if(this.state.touched.username&&username.length<3){
+        if(this.state.touched.username&&username.length<3&&username.length!==0){
             errors.username="Your Name Must contain 3 more than 3 characters"
         }
-        else if(this.state.touched.username&&username.length>15){
+        else if(this.state.touched.username&&username.length>15&&username.length!==0){
             errors.username="Your Name Must contain 15 less than 15 characters"
         }
         else if(this.state.touched.username&&username.length===0){
@@ -133,7 +134,7 @@ function RenderDish({ dish }) {
     }
 }
 
-function RenderComments({ commentobj }) {
+function RenderComments({ commentobj ,addComment,dishId}) {
 
     if (commentobj != null) {
         const commetdiv = commentobj.map((cmt) => {
@@ -148,7 +149,7 @@ function RenderComments({ commentobj }) {
             <div className="col-12 col-md-5 m-1 ">
                 <Media heading>Comments</Media>
                 {commetdiv}
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment} />
             </div>
         )
     } else {
@@ -178,7 +179,9 @@ const DishDetails = (props) => {
                 </div>
 
 
-                <RenderComments commentobj={props.comments} />
+                <RenderComments commentobj={props.comments} 
+                addComment={props.addComment}
+                dishId={props.dish.id} />
             </div>
         </div>
 
