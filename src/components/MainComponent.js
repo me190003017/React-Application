@@ -42,7 +42,7 @@ class Main extends Component {
     }
     return (
 
-      <div>
+      <div className="cntct">
 
         <Header />
         <Switch>

@@ -30,7 +30,7 @@ address{
 }
 
 .navbar-dark {
-    background-color: #81a82d;
+    background-color: currentcolor;
 }
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
@@ -60,4 +60,8 @@ address{
         margin-top: 30px;
         margin-left: 0rem!important;
     }
+}
+
+.cntct{
+    background-color: aliceblue;
 }
