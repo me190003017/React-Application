@@ -30,7 +30,7 @@ address{
 }
 
 .navbar-dark {
-    background-color: currentcolor;
+    background-color: #2a30a5;
 }
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
@@ -68,4 +68,16 @@ address{
 .fa-pencil:before {
     content: "\f040";
     margin-right: 11px;
+}
+
+.fa-sign-in:before {
+    content: "\f090";
+    margin: 7px;
+}
+.btn-secondary {
+    color: cornsilk;
+    background-color: forestgreen;
+    border-color: darkgreen;
+    /* font-size: 16px; */
+    font-family: auto;
 }
