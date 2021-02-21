@@ -3,7 +3,7 @@ import { Media, Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, Breadc
 import {Loading} from './LoadingComponent';
 // import {Control,LableForm,Errors} from "react-redux-form"
 import { Link } from 'react-router-dom';
-
+import { baseUrl } from "../shared/baseUrl";
 
 class CommentForm extends Component {
     constructor(props) {
@@ -117,7 +117,7 @@ function RenderDish({ dish }) {
     if (dish != null) {
         return (
             <Card>
-                <CardImg width="100%" src={dish.image} alt={dish.name} />
+                <CardImg width="100%" src={baseUrl+dish.image} alt={dish.name} />
                 <CardBody>
                     <CardTitle>{dish.name}</CardTitle>
                     <CardText>{dish.description}</CardText>

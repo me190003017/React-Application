@@ -1,0 +1,125 @@
+[33mcommit 9bc3a4b80f53c7867129933f50e2083dafcbd9ef[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Sat Feb 13 18:24:59 2021 +0530
+
+    redux thunk has been used as middleware
+
+[33mcommit 575d2d8b4a6eb6300cd7414670a93e0d45f609d1[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Sat Feb 13 00:30:00 2021 +0530
+
+    we have created redux action
+
+[33mcommit a3b3ee3619b37ebfd2c258587709293a0ab09871[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Fri Feb 12 23:20:25 2021 +0530
+
+    we have split reducer function
+
+[33mcommit 1c6758a504658a365ba10750c167e1f970ca9f5a[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Fri Feb 12 20:33:11 2021 +0530
+
+    assignment 3 solution
+
+[33mcommit d800d1276e3c9e8f6548f6187f5c5ec85e01cf4a[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Fri Feb 12 12:39:14 2021 +0530
+
+    we have validate our contact form using react-redux-form of redux
+
+[33mcommit a6a35f2d8b0b20f5bb29b50f2c00650fd65cb55f[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Fri Feb 12 10:48:15 2021 +0530
+
+    we update  our contact form using react-redux-form of redux
+
+[33mcommit a79a3bc9766aaeee5aa206059eefa11fe0b63ff3[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Thu Feb 11 22:41:13 2021 +0530
+
+    intro to Redux we store state of our application behind the scene using redux and connect main component to redux store
+
+[33mcommit d7f7743c0efb679ed1f625734f1ea9f7675fffd8[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Thu Feb 11 16:47:48 2021 +0530
+
+    we have added uncontrolled form as login form in header component
+
+[33mcommit ff174ca2880a9c96a963a6708e81036cf3e1b34e[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Thu Feb 11 15:42:59 2021 +0530
+
+    we have made our form validate this was a controlled form
+
+[33mcommit a3ff7e72172f3bb58f3310e6cc1e6ad2094bcdef[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Thu Feb 11 10:00:24 2021 +0530
+
+    we have added a controlled form
+
+[33mcommit 6838f767a336fce9752a7d5e1893d415eec6bcf3[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Wed Feb 10 22:05:27 2021 +0530
+
+    we have added about us page in our project
+
+[33mcommit f29ae2eaf825d4de1355853ffb35b633e69a2c01[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Wed Feb 10 16:58:20 2021 +0530
+
+    we have added dish detail component
+
+[33mcommit 64b2ff97d9dc8efaa9c82d005908b84c61f50002[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Wed Feb 10 11:25:59 2021 +0530
+
+    we have add home in our single page application
+
+[33mcommit 09279e731f9a1e49911cfd39ab95052cde1a792a[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Tue Feb 9 23:48:06 2021 +0530
+
+    we have used react router to make navigation bar and make contact page
+
+[33mcommit cb781988fca45963c72c323f7dabdbf9e350e21d[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Tue Feb 9 20:03:13 2021 +0530
+
+    we added header and footer
+
+[33mcommit 2c5a76fcc6d19c9af722ae1b2099da93e2414a19[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Tue Feb 9 12:10:20 2021 +0530
+
+    change class component in functional component
+
+[33mcommit 0a3087216bc304626c74243a5663a914fc980cd2[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Tue Feb 9 11:49:27 2021 +0530
+
+    some modification
+
+[33mcommit 71b020afbea99427990450c772d762ba278fcb16[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Tue Feb 9 11:04:00 2021 +0530
+
+    we have distributed our code in presentation and container component
+
+[33mcommit 7b603a02af32dcbe579929c3d289a291cddb6873[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Mon Feb 8 18:11:46 2021 +0530
+
+    we have learnt about card component and event handling and passing attributes from parent to child and learnt abour state
+
+[33mcommit 72d53e255cf9c8577ec413a76595c2bd1b154f5d[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Sun Feb 7 21:02:57 2021 +0530
+
+    we make our first react component
+
+[33mcommit 221dda556cf2d307fbc42aa6d3f956d609610bb7[m
+Author: Bhupendra singh <bhupendrasingh62435@gmail.com>
+Date:   Sat Feb 6 19:50:38 2021 +0530
+
+    Initialize project using Create React App
