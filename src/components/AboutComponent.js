@@ -3,7 +3,7 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { baseUrl } from "../shared/baseUrl";
 import { Loading } from "./LoadingComponent";
-
+import {FadeTransform} from "react-animation-components"
 const RenderContent = ({ leaders, isLoading, errMess }) => {
 
     if (isLoading) {
@@ -15,12 +15,16 @@ const RenderContent = ({ leaders, isLoading, errMess }) => {
             <h4>{errMess}</h4>
         )
     } else {
-        return(
-        leaders.map((leader) => {
-            return (
-                <RenderLeader item={leader}  />
-            );
-        })
+        return (
+            leaders.map((leader) => {
+                return (
+                <FadeTransform in transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+                    <RenderLeader item={leader} />
+                </FadeTransform>
+                );
+            })
         )
     }
 }

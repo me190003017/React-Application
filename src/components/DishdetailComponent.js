@@ -1,25 +1,28 @@
 import React, { Component } from "react";
 import { Media, Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Modal, Label, Input, Button, ModalHeader, ModalBody, Form, FormGroup, FormFeedback } from "reactstrap";
-import {Loading} from './LoadingComponent';
+import { Loading } from './LoadingComponent';
 // import {Control,LableForm,Errors} from "react-redux-form"
 import { Link } from 'react-router-dom';
 import { baseUrl } from "../shared/baseUrl";
+import { FadeTransform, Fade, Stagger } from "react-animation-components";
+
+
 
 class CommentForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isModalOpen: false,
-            username:'',
-            touched:{
-                username:false
+            username: '',
+            touched: {
+                username: false
             }
         };
 
         this.toggleModal = this.toggleModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChange=this.handleInputChange.bind(this);
-        this.handleBlur=this.handleBlur.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
 
     }
 
@@ -32,44 +35,44 @@ class CommentForm extends Component {
 
     handleSubmit = (event) => {
         this.toggleModal();
-        this.props.postComment(this.props.dishId,this.rating.value,this.username.value,this.comment.value);
-    
+        this.props.postComment(this.props.dishId, this.rating.value, this.username.value, this.comment.value);
+
         alert("Your Name : " + this.username.value + " Rating : " + this.rating.value + " Comment : " + this.comment.value);
         console.log("Your Name : " + this.username.value + " Rating : " + this.rating.value + " Comment : " + this.comment.value)
         event.preventDefault();
     }
-    handleBlur =(field)=>(evt)=>{
+    handleBlur = (field) => (evt) => {
         this.setState({
-            touched:{ ...this.state.touched,[field]:true}
+            touched: { ...this.state.touched, [field]: true }
         })
     }
-    handleInputChange=(event)=>{
-        const target=event.target;
-        const value=target.type==='checkbox' ? target.checked :target.value;
+    handleInputChange = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
-            username:value
+            username: value
         });
     }
-    validate(username){
-        const errors={
-            username:''
+    validate(username) {
+        const errors = {
+            username: ''
         };
-        if(this.state.touched.username&&username.length<3&&username.length!==0){
-            errors.username="Your Name Must contain 3 more than 3 characters"
+        if (this.state.touched.username && username.length < 3 && username.length !== 0) {
+            errors.username = "Your Name Must contain 3 more than 3 characters"
         }
-        else if(this.state.touched.username&&username.length>15&&username.length!==0){
-            errors.username="Your Name Must contain 15 less than 15 characters"
+        else if (this.state.touched.username && username.length > 15 && username.length !== 0) {
+            errors.username = "Your Name Must contain 15 less than 15 characters"
         }
-        else if(this.state.touched.username&&username.length===0){
-            errors.username="Required"
+        else if (this.state.touched.username && username.length === 0) {
+            errors.username = "Required"
         }
         return errors;
-        
+
     }
 
 
     render() {
-        const errors=this.validate(this.state.username);
+        const errors = this.validate(this.state.username);
         return (
             <div>
 
@@ -81,19 +84,19 @@ class CommentForm extends Component {
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
                                 <Label htmlFor="rating">Rating</Label>
-                                <Input type="select" name="rating" innerRef={(input)=>this.rating=input}>
-                                <option>1</option>
-                                <option>2</option><option>3</option><option>4</option><option>5</option>
+                                <Input type="select" name="rating" innerRef={(input) => this.rating = input}>
+                                    <option>1</option>
+                                    <option>2</option><option>3</option><option>4</option><option>5</option>
                                 </Input>
 
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="username">Your Name</Label>
                                 <Input type="text" id="username" name="username" placeholder="Your Name" value={this.state.username} onChange={this.handleInputChange}
-                                valid={errors.username===''} invalid={errors.username!==''} 
-                                onBlur={this.handleBlur('username')}
+                                    valid={errors.username === ''} invalid={errors.username !== ''}
+                                    onBlur={this.handleBlur('username')}
 
-                                innerRef={(input) => this.username = input} />
+                                    innerRef={(input) => this.username = input} />
                                 <FormFeedback>{errors.username}</FormFeedback>
                             </FormGroup>
                             <FormGroup>
@@ -116,14 +119,17 @@ class CommentForm extends Component {
 function RenderDish({ dish }) {
     if (dish != null) {
         return (
-            <Card>
-                <CardImg width="100%" src={baseUrl+dish.image} alt={dish.name} />
-                <CardBody>
-                    <CardTitle>{dish.name}</CardTitle>
-                    <CardText>{dish.description}</CardText>
-                </CardBody>
-            </Card>
-
+            <FadeTransform in transformProps={{
+                exitTransform: 'scale(0.5) translateY(-50%)'
+            }}>
+                <Card>
+                    <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+                    <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+            </FadeTransform>
         )
     } else {
         return (
@@ -134,21 +140,28 @@ function RenderDish({ dish }) {
     }
 }
 
-function RenderComments({ commentobj ,postComment,dishId}) {
+function RenderComments({ commentobj, postComment, dishId }) {
 
     if (commentobj != null) {
         const commetdiv = commentobj.map((cmt) => {
             return (
-                <div key={cmt.id}>
-                    <p>{cmt.comment}</p>
-                    <p>-- {cmt.author} ,{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(cmt.date)))}</p>
-                </div>
+                <Fade in>
+                    <li key={cmt.id}>
+                        <p>{cmt.comment}</p>
+                        <p>-- {cmt.author} ,{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(cmt.date)))}</p>
+                    </li>
+                </Fade>
             )
         })
         return (
+
             <div className="col-12 col-md-5 m-1 ">
                 <Media heading>Comments</Media>
-                {commetdiv}
+                <ul className="list-unstyled">
+                    <Stagger in>
+                        {commetdiv}
+                    </Stagger>
+                </ul>
                 <CommentForm dishId={dishId} postComment={postComment} />
             </div>
         )
@@ -159,24 +172,24 @@ function RenderComments({ commentobj ,postComment,dishId}) {
     }
 }
 const DishDetails = (props) => {
-    if(props.dishesLoading){
-        return(
+    if (props.dishesLoading) {
+        return (
             <div className="container">
                 <div className="row">
                     <Loading />
                 </div>
             </div>
         );
-    }else if(props.dishesErrMess){
-        return(
+    } else if (props.dishesErrMess) {
+        return (
             <div className="container">
                 <div className="row">
-                <h4> {props.errMess}</h4>
+                    <h4> {props.errMess}</h4>
                 </div>
             </div>
-        );       
+        );
     }
-    else if(props.dish!=null){
+    else if (props.dish != null) {
         return (
             <div className="container">
                 <div className="row">
@@ -197,21 +210,21 @@ const DishDetails = (props) => {
                     </div>
 
 
-                    <RenderComments commentobj={props.comments} 
-                    postComment={props.postComment}
-                    dishId={props.dish.id} />
+                    <RenderComments commentobj={props.comments}
+                        postComment={props.postComment}
+                        dishId={props.dish.id} />
                 </div>
             </div>
-        
+
         )
-    }else{
-        return(
+    } else {
+        return (
             <div>
-                
+
             </div>
         )
     }
-    
+
 
 }
 

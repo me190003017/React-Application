@@ -11,6 +11,8 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors,actions } from "react-redux-form";
+import { FadeTransform } from "react-animation-components";
+
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -34,6 +36,7 @@ class Contact extends Component {
 
   render() {
     return (
+
       <div className="container ">
         <div className="row">
           <Breadcrumb>
@@ -272,6 +275,7 @@ class Contact extends Component {
           </div>
         </div>
       </div>
+    
     );
   }
 }
